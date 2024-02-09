@@ -88,7 +88,7 @@ export default function Landing() {
                   state: {
                     source: flightDetails.source,
                     destination: flightDetails.destination,
-                    date: flightDetails.date,
+                    date: flightDetails.date["$d"],
                   },
                 })
               }

@@ -141,7 +141,7 @@ export default function FlightDetails() {
                   }}
                 >
                   <h3>Date : </h3>
-                  <h1>{new Date(date["$d"]).toDateString()}</h1>
+                  <h1>{new Date(date).toDateString()}</h1>
                 </div>
               </div>
             </div>
@@ -202,6 +202,7 @@ export default function FlightDetails() {
                             date={item.displayData.source.depTime}
                             source={item.displayData.source}
                             destination={item.displayData.destination}
+                            userDate={date}
                           />
                         );
                       })}

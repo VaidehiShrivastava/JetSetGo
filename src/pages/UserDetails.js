@@ -54,7 +54,8 @@ export default function UserDetails() {
       <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
         <Button
           size="large"
-          onClick={() =>
+          onClick={() =>{
+            console.log(date)
             navigate("/flightdetails", {
               state: {
                 date: date,
@@ -62,6 +63,8 @@ export default function UserDetails() {
                 destination: destination.airport.cityName,
               },
             })
+          }
+          
           }
         >
           <ArrowLeftOutlined />

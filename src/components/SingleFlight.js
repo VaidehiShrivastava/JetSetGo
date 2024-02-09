@@ -8,13 +8,13 @@ export default function SingleFlight(props) {
     const navigate = useNavigate();
   const {
     id,
-    date,
     fare,
     totalDuration,
     stopInfo,
     airline,
     source,
     destination,
+    userDate
   } = props;
 
   const FlightDetails = (flight, type) => {
@@ -84,7 +84,7 @@ export default function SingleFlight(props) {
                 navigate("/userDetails", {
                   state: {
                     id: id,
-                    date: date,
+                    date: userDate,
                     fare: fare,
                     totalDuration: totalDuration,
                     airline: airline,
