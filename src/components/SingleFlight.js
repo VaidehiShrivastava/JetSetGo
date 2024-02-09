@@ -53,6 +53,7 @@ export default function SingleFlight(props) {
                 src={airline.airlineName === "JetSpice" ? JetSpice : AirIndia}
                 width={"30px"}
                 height={"30px"}
+                alt="flight"
               />
 
               <h4 style={{ marginBottom: "5px" }}>{airline.airlineName}</h4>

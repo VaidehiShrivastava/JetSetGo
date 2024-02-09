@@ -52,19 +52,20 @@ export default function FlightDetails() {
 
   useEffect(() => {
     getTheData();
+    //eslint-disable-next-line
   }, [state]);
 
   useEffect(() => {
     let tempData = [...data.original],finalData = [];
 
     if (checkedAirline.length > 0 && checkedFare.length > 0) {
-      tempData.map((item) => {
+      tempData.forEach((item) => {
         if (
           checkedAirline.indexOf(
             item.displayData.airlines[0]["airlineName"]
           ) !== -1
         ) {
-          checkedFare.map((i) => {
+          checkedFare.forEach((i) => {
             let value = i.split(":");
             if (item.fare > parseInt(value[0]) && item.fare < parseInt(value[1]) ) {
                 finalData.push(item)
@@ -73,7 +74,7 @@ export default function FlightDetails() {
         }
       });
     } else if (checkedAirline.length > 0) {
-      tempData.map((item) => {
+      tempData.forEach((item) => {
         if (
           checkedAirline.indexOf(
             item.displayData.airlines[0]["airlineName"]
@@ -84,8 +85,8 @@ export default function FlightDetails() {
       });
     }
     else if (checkedFare.length > 0) {
-        tempData.map((item) => {
-            checkedFare.map((i) => {
+        tempData.forEach((item) => {
+            checkedFare.forEach((i) => {
                 let value = i.split(":");
                 if (item.fare > parseInt(value[0]) && item.fare < parseInt(value[1]) ) {
                     finalData.push(item)
@@ -102,6 +103,7 @@ export default function FlightDetails() {
         ...prev,
         data:finalData
     }))
+    //eslint-disable-next-line
   }, [checkedAirline, checkedFare]);
   return (
     <div style={{ padding: "20px" }}>

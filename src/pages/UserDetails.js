@@ -6,7 +6,6 @@ import {
   Input,
   Form,
   DatePicker,
-  Checkbox,
   Select,
   InputNumber,
 } from "antd";
@@ -21,7 +20,7 @@ import PrimaryIcon from "../components/PrimaryIcon";
 export default function UserDetails() {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const { date, id, fare, totalDuration, airline, source, destination } = state;
+  const { date, id,fare, airline, source, destination } = state;
 
   const onFinish = (values) => {
     navigate("/success");
@@ -89,8 +88,10 @@ export default function UserDetails() {
                   src={airline.airlineName === "JetSpice" ? JetSpice : AirIndia}
                   width={"100px"}
                   height={"100px"}
+                  alt="flight"
                 />
                 <h3>Flight id : {id}</h3>
+                <h3>Fare : ₹{fare}</h3>
               </div>
 
               <div
