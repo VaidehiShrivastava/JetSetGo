@@ -1,11 +1,15 @@
 const locations = [
     {
         value:"Mumbai",
-        label:"Mumbai - Chatrapati shivaji Terminus"
+        label:"Mumbai - Chhatrapati Shivaji International Airport"
     },
     {
-        value:"Delhi ",
-        label:"Delhi - India Gate"
+        value:"Chennai ",
+        label:"Chennai - Chennai International Airport"
+    },
+    {
+        value:"Delhi",
+        label:"Delhi - Indira Gandhi Airport"
     }
 ]
 
