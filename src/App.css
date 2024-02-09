@@ -6,10 +6,10 @@ body
 .landing {
   /* height: 100%;
   width: 100%; */
-  padding-top: 210px;
-  padding-bottom: 220px;
+  padding-top: 250px;
+  padding-bottom: 250px;
   background-color: blueviolet;
-  background-image: url("./assets/Beach.jpg");
+  background-image: url("./assets/images/Lake.jpg");
   /* background-repeat: no-repeat; */
   background-size: cover;
 }
@@ -21,8 +21,12 @@ body
 .outer_container
 {
   margin: 0px 30px;
-  padding: 30px;
+  padding: 5px 30px;
   border-radius: 8px;
   background-color: white;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.section
+{
+  margin: 40px 0px;
 }
