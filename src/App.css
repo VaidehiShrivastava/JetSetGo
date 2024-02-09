@@ -6,17 +6,15 @@ body
 .landing {
   /* height: 100%;
   width: 100%; */
-  padding-top: 250px;
-  padding-bottom: 250px;
+  
   background-color: blueviolet;
   background-image: url("./assets/images/Lake.jpg");
   /* background-repeat: no-repeat; */
   background-size: cover;
 }
-.landing > h1
+h1
 {
-  margin: 30px;
-  color: white;
+  color: black;
 }
 .outer_container
 {
@@ -26,7 +24,33 @@ body
   background-color: white;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
+.outer_container_nomargin
+{
+  padding: 5px 30px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
 .section
 {
   margin: 40px 0px;
 }
+
+.single_flight
+{
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  margin: 20px 0px;
+  padding: 5px;
+}
+
+.single_flight:hover
+{
+  border: 1px solid #1890ff;
+}
+
+.p_margin
+{
+  margin: 0px;
+}
+
