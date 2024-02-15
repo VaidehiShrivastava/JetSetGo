@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Select, Space, DatePicker, Button } from "antd";
+import { Select, Row, Col, DatePicker, Button } from "antd";
 import { useNavigate } from "react-router-dom";
 import { locations } from "../data/Constants";
 
@@ -35,7 +35,44 @@ export default function Landing() {
           <h4>Let&#39;s elevate travel together!</h4>
         </div>
         <div className="section">
-          <Space.Compact
+          <Row>
+            <Col xs={{ span: 24 }} lg={{ span: 8 }}>
+              <Select
+                value={flightDetails.source}
+                placeholder="Select Source"
+                size="large"
+                style={{
+                  width: "100%",
+                }}
+                onChange={(e) => handleFlightDetails(e, "source")}
+                options={options}
+              />
+            </Col>
+            <Col xs={{ span: 24 }} lg={{ span: 8 }}>
+              <Select
+                value={flightDetails.destination}
+                placeholder="Select Destination"
+                size="large"
+                style={{
+                  width: "100%",
+                }}
+                onChange={(e) => handleFlightDetails(e, "destination")}
+                options={options}
+              />
+            </Col>
+            <Col xs={{ span: 24 }} lg={{ span: 8 }}>
+              <DatePicker
+                value={flightDetails.date}
+                style={{
+                  width: "100%",
+                }}
+                size="large"
+                onChange={(e) => handleFlightDetails(e, "date")}
+              />
+            </Col>
+          </Row>
+
+          {/* <Space.Compact
             block
             direction="horizontal"
             style={{
@@ -70,7 +107,7 @@ export default function Landing() {
               size="large"
               onChange={(e) => handleFlightDetails(e, "date")}
             />
-          </Space.Compact>
+          </Space.Compact> */}
         </div>
 
         <div className="section">

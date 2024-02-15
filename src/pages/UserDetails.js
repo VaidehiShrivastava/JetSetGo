@@ -75,7 +75,7 @@ export default function UserDetails() {
 
       <div style={{ height: "650px" }}>
         <Row gutter={[16, 16]} style={{ height: "100%" }}>
-          <Col span={12}>
+        <Col xs={{ span: 24 }} sm={{span: 24}} md={{span: 24}} lg={{ span: 12 }} xl={{span: 12}}>
             <div
               className="outer_container_nomargin"
               style={{ padding: "25px" }}
@@ -128,7 +128,7 @@ export default function UserDetails() {
             </div>
           </Col>
 
-          <Col span={12}>
+          <Col xs={{ span: 24 }} sm={{span: 24}} md={{span: 24}} lg={{ span: 12 }} xl={{span: 12}}>
             <Form onFinish={onFinish} onFinishFailed={onFinishFailed}>
               <div className="outer_container_nomargin">
                 <h1>Enter passanger details</h1>

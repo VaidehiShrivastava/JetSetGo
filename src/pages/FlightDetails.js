@@ -44,11 +44,10 @@ export default function FlightDetails() {
     setCheckedFare(checkedValues);
   };
 
-  const resetTheFilters = () =>
-  {
+  const resetTheFilters = () => {
     setCheckedAirline([]);
-    setCheckedFare([])
-  }
+    setCheckedFare([]);
+  };
 
   useEffect(() => {
     getTheData();
@@ -56,7 +55,8 @@ export default function FlightDetails() {
   }, [state]);
 
   useEffect(() => {
-    let tempData = [...data.original],finalData = [];
+    let tempData = [...data.original],
+      finalData = [];
 
     if (checkedAirline.length > 0 && checkedFare.length > 0) {
       tempData.forEach((item) => {
@@ -67,8 +67,11 @@ export default function FlightDetails() {
         ) {
           checkedFare.forEach((i) => {
             let value = i.split(":");
-            if (item.fare > parseInt(value[0]) && item.fare < parseInt(value[1]) ) {
-                finalData.push(item)
+            if (
+              item.fare > parseInt(value[0]) &&
+              item.fare < parseInt(value[1])
+            ) {
+              finalData.push(item);
             }
           });
         }
@@ -80,29 +83,29 @@ export default function FlightDetails() {
             item.displayData.airlines[0]["airlineName"]
           ) !== -1
         ) {
-            finalData.push(item)
+          finalData.push(item);
         }
       });
-    }
-    else if (checkedFare.length > 0) {
-        tempData.forEach((item) => {
-            checkedFare.forEach((i) => {
-                let value = i.split(":");
-                if (item.fare > parseInt(value[0]) && item.fare < parseInt(value[1]) ) {
-                    finalData.push(item)
-                }
-              });
+    } else if (checkedFare.length > 0) {
+      tempData.forEach((item) => {
+        checkedFare.forEach((i) => {
+          let value = i.split(":");
+          if (
+            item.fare > parseInt(value[0]) &&
+            item.fare < parseInt(value[1])
+          ) {
+            finalData.push(item);
+          }
         });
-      }
-      else
-      {
-        finalData = [...data.original]
-      }
+      });
+    } else {
+      finalData = [...data.original];
+    }
 
-    setData((prev)=>({
-        ...prev,
-        data:finalData
-    }))
+    setData((prev) => ({
+      ...prev,
+      data: finalData,
+    }));
     //eslint-disable-next-line
   }, [checkedAirline, checkedFare]);
   return (
@@ -117,9 +120,11 @@ export default function FlightDetails() {
 
       <div style={{ height: "650px" }}>
         <Row gutter={[16, 16]}>
-          <Col span={24}>
-            <div className="outer_container_nomargin">
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Col xs={{ span: 24 }} >
+          <div className="outer_container_nomargin">
+
+            <Row >
+              <Col xs={{ span: 24 }} lg={{ span: 12 }}>
                 <div
                   style={{
                     display: "flex",
@@ -132,7 +137,9 @@ export default function FlightDetails() {
                   <h3>to</h3>
                   <h1>{destination}</h1>
                 </div>
+              </Col>
 
+              <Col xs={{ span: 24 }} lg={{ span: 12 }}>
                 <div
                   style={{
                     display: "flex",
@@ -143,12 +150,13 @@ export default function FlightDetails() {
                   <h3>Date : </h3>
                   <h1>{new Date(date).toDateString()}</h1>
                 </div>
-              </div>
+              </Col>
+            </Row>
             </div>
           </Col>
 
-          <Col span={6}>
-            <div className="outer_container_nomargin">
+          <Col xs={{ span: 24 }} lg={{ span: 6 }}>
+            <div className="outer_container_nomargin" >
               <h3>Filters</h3>
               <div style={{ height: "65vh", overflowY: "scroll" }}>
                 <p>
@@ -168,13 +176,13 @@ export default function FlightDetails() {
                   onChange={onFareUpdate}
                 />
                 <div style={{marginTop:"20px"}}>
-                <Button type="primary" size="large" onClick={()=>resetTheFilters()}>Reset</Button>
+                  <Button type="primary" size="large" onClick={()=>resetTheFilters()}>Reset</Button>
                 </div>
               </div>
             </div>
           </Col>
 
-          <Col span={18}>
+          <Col xs={{ span: 24 }} lg={{ span: 18 }}>
             <div className="outer_container_nomargin">
               <div>
                 <h3>Flights</h3>
@@ -187,25 +195,25 @@ export default function FlightDetails() {
                 >
                   {data.status === "success" ? (
                     <>
-                      {data.data.length === 0 ? <div><h1>Oops! No data found.</h1> 
-                      <p>Flights are available from <b>Delhi</b> to <b>Mumbai</b> and <b>Mumbai</b> to <b>Chennai.</b></p>
-                      <p>If filters are selected, kindly try with different selections. </p>
-                      </div>: data.data.map((item) => {
-                        return (
-                          <SingleFlight
-                            fare={item.fare}
-                            id={item.id}
-                            key={item.id}
-                            totalDuration={item.displayData.totalDuration}
-                            stopInfo={item.displayData.stopInfo}
-                            airline={item.displayData.airlines[0]}
-                            date={item.displayData.source.depTime}
-                            source={item.displayData.source}
-                            destination={item.displayData.destination}
-                            userDate={date}
-                          />
-                        );
-                      })}
+                      {data.data.length === 0 ? <div><h1>Oops! No data found.</h1>
+                          <p>Flights are available from <b>Delhi</b> to <b>Mumbai</b> and <b>Mumbai</b> to <b>Chennai.</b></p>
+                          <p>If filters are selected, kindly try with different selections. </p>
+                        </div>: data.data.map((item) => {
+                          return (
+                            <SingleFlight
+                              fare={item.fare}
+                              id={item.id}
+                              key={item.id}
+                              totalDuration={item.displayData.totalDuration}
+                              stopInfo={item.displayData.stopInfo}
+                              airline={item.displayData.airlines[0]}
+                              date={item.displayData.source.depTime}
+                              source={item.displayData.source}
+                              destination={item.displayData.destination}
+                              userDate={date}
+                            />
+                          );
+                        })}
                     </>
                   ) : (
                     "Loading"
